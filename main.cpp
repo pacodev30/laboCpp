@@ -1,16 +1,20 @@
 #include <iostream>
 
+void tableMultiplication( const int table, int max = 10)
+{
+    std::cout << "-- Table de " << table << " -- " << std::endl;
+
+    for (int i = 0; i <= max; i++) {
+        if(i == 0)
+            continue;
+        std::cout << i << "x" << table << " = " << i * table << std::endl;
+    }
+}
+
 int main()
 {
-    /*
-     *  std::out => Affichage standard (en mémoire tampon)
-     *  std::err => Erreurs (affichage direct)
-     *  std::clog => Journalisation (en mémoire tampon)
-     *  std::endl => Retour à la ligne + flush
-     *  std:flush => flush
-     */
+    tableMultiplication(7);
+    tableMultiplication(8, 12);
 
-    std::cout << "Hello Stella " << "How are you ?" << std::endl;
-    std::cout << "By";
     return 0;
 }
