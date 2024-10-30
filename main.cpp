@@ -1,23 +1,23 @@
 #include <iostream>
-#include <_stdlib.h>
+#include <ctime>
 using namespace std;
 
 int main()
 {
-    srand(time(0));
+    srand(time(nullptr)); // initialise la fonction sur le temps actuel
+    int mysteryNumber = rand() % 100 + 1; // +1 pour inclure le max
+
     constexpr int maxTry = 6;
     int response;
 
     for (int i = 0; i < maxTry; i++)
     {
-        constexpr int mysteryNumber = rand() % 101;
-
         cout << "Your number in range [0 - 100] : " << std::endl;
         cin >> response;
         cin.ignore();
 
         if (response == mysteryNumber) {
-            cout << "You got it! ;)" << endl;
+            cout << "Yes you got it! ;)" << endl;
             break;
         }
         if (response > mysteryNumber) {
@@ -27,7 +27,9 @@ int main()
         }
 
         if (i == maxTry - 1) {
-            cout << "You lose :(" << endl;
+            cout << "--------" << endl;
+            cout << "You lose :( the number was " << mysteryNumber << endl;
+            break;
         }
     }
     cin.ignore();
